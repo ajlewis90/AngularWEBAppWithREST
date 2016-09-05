@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>AngularJS Routing example</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+		body {
+		  padding-top: 10px;
+		  background-color: #F5F5F5;
+		}
+        
+        .myTable { 
+            width: 100%;
+            text-align: left;
+            background-color: lemonchiffon;
+            border-collapse: collapse;
+        }
+        .myTable th { 
+            background-color: goldenrod;
+            color: white; 
+        }
+        .myTable td, 
+        .myTable th { 
+            padding: 10px;
+            border: 1px solid goldenrod; 
+        }
+
+    </style>
+
+   
+  </head>
+
+  <body ng-app="appointmentBookingApp">
+
+    <div class="container">
+		<div class="row">
+		<div class="col-md-3">
+		   <ul class="nav">
+				<li><a href="#ViewAllAppointments"> List All Appointments </a></li>
+				<li><a href="#ViewUsers"> View User </a></li>
+                <li><a href="#AddAppointment"> Add Appointment</a></li>
+			</ul>
+		</div>
+		<div class="col-md-9">
+		  	<div ng-view></div>
+		</div>
+
+		</div>
+
+    </div><!-- /.container -->
+    
+    
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="app.js"></script>
+
+  </body>
+</html>

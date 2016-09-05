@@ -1,0 +1,24 @@
+
+<h2>Add a note for Appointment #{{appointmentId}}</h2>
+
+<body ng-controller="addNoteController">
+ 
+<div>
+Notes : <ul ng-repeat="note in returnedAppointment.Notes" >
+  <!--<input type = "text" ng-model="a" readonly="true"></input>-->
+  <li>{{note}}</li>
+  
+</ul> 
+<br/><br/>
+  
+New Note information: <input type = "text" ng-model="note" value="note"/><br/><br/>
+
+<!-- The click of this button implements the add functionality, not yet ready-->
+<input type="button" value="Add note" ng-click="addNote(note)" /> <br/><br/>
+
+<!--Testing to check if the add was successful -->
+<p>Output Message : {{msg}}</p>
+</div>
+  
+    
+</body>

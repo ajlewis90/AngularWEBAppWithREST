@@ -1,0 +1,45 @@
+
+    
+<h2>Appointment #{{appointmentId}}</h2>
+Here are the details for Appointment <b>#{{appointmentId}}</b>
+<body ng-controller="editAppointmentController">
+ 
+<div>
+Appointment Id : <input type = "text" ng-bind="appointmentId" value="{{appointmentId}}"/><br/><br/>
+Provider Email : <input type = "email" data-ng-model="returnedAppointment.ProviderEmail"/><br/><br/>
+Description : <input type = "text"  data-ng-model="returnedAppointment.Description" /><br/><br/>
+Start Time : <input type = "date" data-ng-model="returnedAppointment.Start"/><br/><br/>
+End Time : <input type = "date" data-ng-model="returnedAppointment.End"/><br/><br/>
+
+<!-- Notes : <div ng-repeat="note in returnedAppointment.Notes" data-ng-model="returnedAppointment.Notes">
+  <input type = "text" value={{note}}></input>
+</div> -->
+
+<!-- https://github.com/angular/angular.js/issues/1267 -->
+Notes : <div ng-repeat="note in returnedAppointment.Notes">
+  <input type = "text" data-ng-model="returnedAppointment.Notes[$index]"></input>
+</div>
+
+<br/><br/>
+Party : <div ng-repeat="party in returnedAppointment.Party">
+  <input type = "number" data-ng-model="returnedAppointment.Party[$index]"></input>
+</div> 
+<br/><br/>
+<input type="button" value="Send" ng-click="putdata(returnedAppointment.Description,returnedAppointment.Start,returnedAppointment.End,returnedAppointment.Notes,returnedAppointment.Party)" /> <br/><br/>
+<p>Output Message : {{msg}}</p>
+</div>
+ 
+<p>
+<b>Appointment Details for appointment with ID {{appointmentId}} are as follows:</b><br><br>
+Description: {{returnedAppointment.Description}}<br>
+Start time: {{returnedAppointment.Start}}<br>
+End time: {{returnedAppointment.End}}<br>
+Provider Email: {{returnedAppointment.ProviderEmail}}<br>
+<br>
+Appointment notes<br>
+<ul ng:repeat="note in returnedAppointment.Notes">
+<li>{{note}}</li>
+</ul>
+</p>	  
+    
+</body>

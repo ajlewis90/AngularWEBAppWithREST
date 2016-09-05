@@ -1,0 +1,28 @@
+
+    
+<h2>Add new appointment</h2>
+Please fill in the following details<b>
+<body ng-controller="addAppointmentController">
+ 
+<div>
+Appointment Id : <input type = "text" data-ng-model="appointmentId" /><br/><br/>
+Provider Email : <input type = "email" data-ng-model="providerEmail" /><br/><br/>
+Description : <input type = "text"  data-ng-model="description" /><br/><br/>
+Start Time : <input type = "date" data-ng-model="start"/><br/><br/>
+End Time : <input type = "date" data-ng-model="end"/><br/><br/>
+Add Note : 
+  <input type = "text" data-ng-model="notes"></input>
+<br/><br/>
+Party : 
+  <input type = "number" data-ng-model="party"></input>
+
+<br/><br/>
+<input type="button" value="Add Appointment" ng-click="addAppointment(appointmentId,providerEmail,description,start,end,notes,party)" /> <br/><br/>
+<p>Output Message : {{msg}}</p>
+</div>
+ 
+<p>
+
+</p>	  
+    
+</body>

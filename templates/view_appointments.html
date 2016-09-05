@@ -1,0 +1,65 @@
+<h2>View All Appointments</h2>
+
+<body ng-controller="allAppointmentsController">
+	<table class="myTable">
+		<tr>
+        <th>Appointment ID</th>
+		<th>Description</th>
+		<th>Start time</th>
+		<th>End time</th>		
+		</tr>
+		<tr ng-repeat="appointment in allAppointments">
+            <td ng-model="appointment.Id">{{appointment.Id}}</td>
+			<td>{{appointment.Description}}</td>
+			<td>{{appointment.Start}}</td>
+			<td>{{appointment.End}}</td>
+			<td><a ng-href="#ShowOrder/{{appointment.Id}}">Details</td>
+            <td><a ng-href="#EditAppointment/{{appointment.Id}}">Edit</td>
+            <td>
+            <!-- Alternate way: <div ng-show="!addedNote">   -->
+            <div ng-show="!appointment.addedNote">
+                <!-- <a ng-href="#AddNote/{{appointment.Id}}" ng-click="">Add Note</td> -->
+                <a ng-href="" ng-click="changeCompleted(appointment.Id, appointment)">Add Note</a>
+            </div>
+            <div ng-show="appointment.addedNote">
+            <form ng-submit = "addNote(note)">
+            <p>Press ENTER to add note</p>
+             New Note information: <input ng-keyup="$event.keyCode == 13 && addNote(note)" type = "text" ng-model="note" value="note"/><br/><br/>
+         
+            <!-- <input type="button" value="Add note" ng-click="addNote(note)" /> <br/><br/> -->
+            <p>{{msg}}</p>
+            </form>
+            </div>
+            </td>
+		</tr>
+	</table>
+</body>
+
+<!-- http://stackoverflow.com/questions/28533755/how-to-show-specific-element-in-table-cells-using-angularjs -->
+
+<!-- AND COMBINING WITH THE SECOND LINK BELOW :) -->
+
+<!-- https://jsfiddle.net/jfkbj10u/
+
+<div ng-controller="myCtrl">
+<div ng-show="!completed">
+    
+    <a href="" ng-click="changeCompleted()">First Section</a>
+</div>
+
+<div ng-show="completed">
+    <a href="" ng-click="changeCompleted()">Second Section</a>
+</div>
+
+
+</div>
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope){
+    $scope.completed = false;
+    $scope.changeCompleted = function(){
+        $scope.blah = "foo";
+        $scope.completed = !$scope.completed;
+    } 
+});
+-->

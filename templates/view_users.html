@@ -1,0 +1,17 @@
+<h2>View All Users</h2>
+
+<body ng-controller="allUsersController">
+	<table class="myTable">
+		<tr>
+			<th>User Id</th>
+			<th>User Name</th>
+			<th>Email</th>
+		</tr>
+		<tr ng-repeat="user in searchUsers">
+			<td>{{user.Id}}</td>
+			<td>{{user.Name}}</td>
+			<td>{{user.ProviderEmail}}</td>
+            <td><a ng-href="">Appointment Details</td>
+		</tr>
+	</table>
+</body>

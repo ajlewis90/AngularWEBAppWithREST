@@ -1,0 +1,37 @@
+<h2>Appointment #{{appointmentId}}</h2>
+
+<body ng-controller="appointmentDetailsController">
+<p>
+<b>Appointment Details for appointment with ID {{appointmentId}} are as follows:</b><br><br>
+<table>
+<tr>
+<td><b>Description:</td><td></b> {{returnedAppointment.Description}}</td>
+</tr>
+
+<tr>
+<td><b>Start time:</td><td></b> {{returnedAppointment.Start}}<br></td>
+</tr>
+
+<tr>
+<td><b>End time:</td><td></b> {{returnedAppointment.End}}<br></td>
+</tr>
+
+<tr>
+<td><b>Provider Email:</td><td></b>  {{returnedAppointment.ProviderEmail}}<br></td>
+</tr>
+
+</table>
+
+<br>
+<b>Appointment notes</b><br>
+<ul ng:repeat="note in returnedAppointment.Notes">
+<li>{{note}}</li>
+</ul>
+<br>
+
+<b>Parties involved</b><br>
+<ul ng:repeat="party in returnedAppointment.Party">
+<li>{{party}}</li>
+</ul>
+</p>	
+</body>
